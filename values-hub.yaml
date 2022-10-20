@@ -18,6 +18,13 @@ clusterGroup:
       channel: release-2.6
       #csv: advanced-cluster-management.v2.6.1
 
+    mongodb:
+      name: mongodb-operator
+      namespace: openshift-operators
+      channel: alpha
+      source: community-operators
+      csv: mongodb-operator.v0.3.0
+
   projects:
   - hub
   - config-demo
@@ -45,6 +52,12 @@ clusterGroup:
       namespace: golang-external-secrets
       project: hub
       path: common/golang-external-secrets
+
+    mongodb:
+      name: mongodb
+      namespace: openshift-operators
+      project: database
+      path: charts/region/mongodb/basic
 
     config-demo:
       name: config-demo

@@ -9,3 +9,7 @@ global:
 
 main:
   clusterGroupName: hub
+
+mongodb:
+  size: 1Gi
+  class: gp2
