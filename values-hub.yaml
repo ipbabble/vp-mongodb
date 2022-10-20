@@ -10,6 +10,7 @@ clusterGroup:
   - vault
   - golang-external-secrets
   - config-demo
+  - database
 
   subscriptions:
     acm:
@@ -55,7 +56,7 @@ clusterGroup:
 
     mongodb:
       name: mongodb
-      namespace: openshift-operators
+      namespace: database
       project: database
       path: charts/hub/mongodb/basic
 
