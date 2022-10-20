@@ -57,7 +57,7 @@ clusterGroup:
       name: mongodb
       namespace: openshift-operators
       project: database
-      path: charts/region/mongodb/basic
+      path: charts/hub/mongodb/basic
 
     config-demo:
       name: config-demo
