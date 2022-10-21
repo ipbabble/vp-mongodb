@@ -8,7 +8,8 @@ spec:
     imagePullPolicy: IfNotPresent
     securityContext:
       runAsNonRoot: true
-      runAsUser: 997
+      runAsUser: 1001080001
+    architecture: replicaset
   storage:
     accessModes:
       - ReadWriteOnce
