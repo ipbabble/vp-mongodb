@@ -9,7 +9,6 @@ spec:
     securityContext:
       runAsNonRoot: true
       runAsUser: 1001080001
-    architecture: replicaset
   storage:
     accessModes:
       - ReadWriteOnce
