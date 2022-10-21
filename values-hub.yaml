@@ -10,7 +10,7 @@ clusterGroup:
   - vault
   - golang-external-secrets
   - config-demo
-  - database
+  - mongo
 
   subscriptions:
     acm:
@@ -21,7 +21,7 @@ clusterGroup:
 
     mongodb:
       name: mongodb-operator
-      namespace: openshift-operators
+      namespace: mongo
       channel: alpha
       source: community-operators
       csv: mongodb-operator.v0.3.0
@@ -29,6 +29,7 @@ clusterGroup:
   projects:
   - hub
   - config-demo
+  - database
 
   applications:
     acm:
