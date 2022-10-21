@@ -1,3 +1,4 @@
+# These values are overriden by values in ~/values-secret.yaml
 mongodb:
   name: mongodb-secret
   key: password
