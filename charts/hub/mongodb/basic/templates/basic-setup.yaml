@@ -18,3 +18,4 @@ spec:
     secretRef:
       name: {{ .Values.mongodb.name }}
       key: {{ .Values.mongodb.key }}
+  clusterSize: 3

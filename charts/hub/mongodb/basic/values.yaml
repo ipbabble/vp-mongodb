@@ -1,4 +1,7 @@
 # These values are overriden by values in ~/values-secret.yaml
 mongodb:
-  name: mongodb-secret
+  name: secret
   key: password
+  size: 1Gi
+  class: gp2
+  db-name: testdb
