@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-pvc
+  namespace: mongo
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+spec:
+  resources:
+    requests:
+      storage: {{ .Values.mongodb.size }}
+  storageClassName: gp2
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
