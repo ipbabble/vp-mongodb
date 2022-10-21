@@ -57,7 +57,7 @@ clusterGroup:
 
     mongodb:
       name: mongodb
-      namespace: database
+      namespace: mongo
       project: database
       path: charts/hub/mongodb/basic
 
