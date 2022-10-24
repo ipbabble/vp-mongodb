@@ -34,7 +34,7 @@ test:
 
 helmlint:
 	# no regional charts just yet: "$(wildcard charts/region/*)"
-	@for t in "$(wildcard charts/*/*)" "$(wildcard charts/hub/[a-l]*) $(wildcard charts/hub/mongodb/*) $(wildcard charts/hub/[n-z]*)"; do helm lint $$t; if [ $$? != 0 ]; then exit 1; fi; done
+	@for t in "$(wildcard charts/hub/[a-l]*) $(wildcard charts/hub/mongodb/*) $(wildcard charts/hub/[n-z]*)"; do helm lint $$t; if [ $$? != 0 ]; then exit 1; fi; done
 
 .PHONY: kubeconform
 kubeconform:
