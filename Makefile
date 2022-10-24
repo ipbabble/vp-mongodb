@@ -29,12 +29,12 @@ common-test:
 
 test:
 	make -f common/Makefile CHARTS="$(wildcard charts/all/*)" PATTERN_OPTS="-f values-global.yaml -f values-hub.yaml" test
-	make -f common/Makefile CHARTS="$(wildcard charts/hub/*)" PATTERN_OPTS="-f values-global.yaml -f values-hub.yaml" test
+	make -f common/Makefile CHARTS="$(wildcard charts/hub/[a-l]*) $(wildcard charts/hub/mongodb/*) $(wildcard charts/hub/[n-z]*)" PATTERN_OPTS="-f values-global.yaml -f values-hub.yaml" test
 	#make -f common/Makefile CHARTS="$(wildcard charts/region/*)" PATTERN_OPTS="-f values-region-one.yaml" test
 
 helmlint:
 	# no regional charts just yet: "$(wildcard charts/region/*)"
-	@for t in "$(wildcard charts/*/*)"; do helm lint $$t; if [ $$? != 0 ]; then exit 1; fi; done
+	@for t in "$(wildcard charts/*/*)" "$(wildcard charts/hub/[b-l]*) $(wildcard charts/hub/mongodb/*) $(wildcard charts/hub/[n-z]*)"; do helm lint $$t; if [ $$? != 0 ]; then exit 1; fi; done
 
 .PHONY: kubeconform
 kubeconform:
