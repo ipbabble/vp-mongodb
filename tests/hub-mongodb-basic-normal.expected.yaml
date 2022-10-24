@@ -1,0 +1,41 @@
+---
+# Source: mongodb/templates/basic-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-pvc
+  namespace: mongo
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: gp2
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+---
+# Source: mongodb/templates/basic-setup.yaml
+apiVersion: opstreelabs.in/v1alpha1
+kind: MongoDB
+metadata:
+  name: mongodb
+spec:
+  kubernetesConfig:
+    image: 'quay.io/opstree/mongo:v5.0.6'
+    imagePullPolicy: IfNotPresent
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1001080001
+  storage:
+    accessModes:
+      - ReadWriteOnce
+    storageSize: 1Gi
+    storageClass: gp2
+  mongoDBSecurity:
+    mongoDBAdminUser: admin
+    secretRef:
+      name: secret
+      key: password
+#  clusterSize: 3
